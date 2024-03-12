@@ -23,7 +23,7 @@ class AnomalyMapGenerator(nn.Module):
     def __init__(self, sigma: int = 4) -> None:
         super().__init__()
         kernel_size = 2 * int(4.0 * sigma + 0.5) + 1
-        self.blur = GaussianBlur2d(kernel_size=(kernel_size, kernel_size), sigma=(sigma, sigma), channels=1)
+        self.blur = GaussianBlur2d(kernel_size=(kernel_size, kernel_size), sigma=(sigma, sigma))
 
     @staticmethod
     def compute_distance(embedding: torch.Tensor, stats: list[torch.Tensor]) -> torch.Tensor:
